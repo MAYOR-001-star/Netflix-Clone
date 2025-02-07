@@ -2,7 +2,7 @@ import './player.css'
 
 const Player = () => {
     return (
-        <div>
+        <div className='footer'>
             <h1>Player Page</h1>
         </div>
     )
