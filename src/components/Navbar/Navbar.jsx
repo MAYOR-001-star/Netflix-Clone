@@ -3,7 +3,7 @@ import './Navbar.css';
 import logo from '../../assets/logo.png';
 import search_logo from '../../assets/search_icon.svg';
 import bell_logo from '../../assets/bell_icon.svg';
-import profile_logo from '../../assets/profile_img.png';
+import profile_logo from '../../assets/profile-content.svg';
 import caret_logo from '../../assets/caret_icon.svg';
 
 const Navbar = () => {
@@ -39,7 +39,6 @@ const Navbar = () => {
                     <li>Movies</li>
                     <li>New & Popular</li>
                     <li>My List</li>
-                    <li>Browse by Language</li>
                 </ul>
             </div>
             <div className='navbar-right'>

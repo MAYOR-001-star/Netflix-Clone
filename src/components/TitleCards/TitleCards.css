@@ -1,0 +1,46 @@
+.title-cards {
+    padding: 15px;
+    overflow: hidden;
+}
+
+.card-list {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    overflow-x: scroll;
+}
+
+/* ✅ Hide scrollbar for Chrome, Edge, Safari */
+.card-list::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    position: relative;
+    flex: 0 0 auto; /* ✅ Prevents shrinking, keeps consistent size */
+}
+
+.card img {
+    width: 15rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card p {
+    position: absolute;
+    bottom: 0.3rem;
+    left: 40%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
