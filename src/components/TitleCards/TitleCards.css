@@ -22,7 +22,7 @@
 }
 
 .card img {
-    width: 15rem;
+    width: 9rem;
     border-radius: 4px;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
@@ -41,6 +41,6 @@
     background: rgba(0, 0, 0, 0.7);
     padding: 4px 8px;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 10px;
     font-weight: bold;
 }
