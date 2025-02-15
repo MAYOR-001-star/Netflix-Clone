@@ -34,8 +34,9 @@
 
 .card p {
     position: absolute;
-    bottom: 0.3rem;
-    left: 40%;
+    bottom: 0.7rem;
+    left: 50%;
+    width: 7rem;
     transform: translateX(-50%);
     color: white;
     background: rgba(0, 0, 0, 0.7);
