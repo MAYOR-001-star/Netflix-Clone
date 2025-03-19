@@ -7,6 +7,7 @@ import profile_logo from '../../assets/profile-content.svg';
 import caret_logo from '../../assets/caret_icon.svg';
 
 const Navbar = () => {
+    const navRef = useRef(null);
     const [showDropdown, setShowDropdown] = useState(false);
     const dropdownRef = useRef(null);
 
@@ -22,13 +23,27 @@ const Navbar = () => {
         };
 
         document.addEventListener("mousedown", handleClickOutside);
+
+        const handleScroll = () => {
+            if (navRef.current) {
+                if (window.scrollY > 100) {
+                    navRef.current.classList.add('navbar-black');
+                } else {
+                    navRef.current.classList.remove('navbar-black');
+                }
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 
     return (
-        <div className='navbar'>
+        <div className='navbar' ref={navRef}>
             <div className='navbar-left'>
                 <div>
                     <img src={logo} alt='company-logo'/>
