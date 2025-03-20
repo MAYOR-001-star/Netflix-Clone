@@ -6,6 +6,7 @@ import {
     signOut 
 } from 'firebase/auth';
 import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { toast } from 'react-toastify';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAmtq5tk3eTajoZYRooLQF3qPiUtns9M3U",
@@ -20,8 +21,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);  // ✅ Firebase Auth instance
 const db = getFirestore(app);  // ✅ Firestore instance
 
-// ✅ Explicitly export auth and db
-export { auth, db, signup, signin, logout };
 
 // Authentication functions
 const signup = async (name, email, password) => {
@@ -35,7 +34,8 @@ const signup = async (name, email, password) => {
             email,
         });
     } catch (error) {
-        alert(error.message);
+        console.log(error.message);
+        toast.error(error.code.split('/')[1].split('-').join(' '))
     }
 };
 
@@ -43,7 +43,8 @@ const signin = async (email, password) => {
     try {
         await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
-        alert(error.message);
+        console.log(error.message);
+        toast.error(error.code.split('/')[1].split('-').join(' '))
     }
 };
 
@@ -51,6 +52,8 @@ const logout = async () => {
     try {
         await signOut(auth);
     } catch (error) {
-        alert(error.message);
+        console.log(error.message);
     }
 };
+
+export { auth, db, signup, signin, logout };

@@ -1,5 +1,4 @@
 import './TitleCards.css';
-import cards from '../../assets/cards/Cards_data';
 import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -17,7 +16,6 @@ const TitleCards = ({ category, title }) => {
 
     const fetchData = async () => {
         try {
-            // Use backticks for proper template literal interpolation.
             const response = await fetch(
                 `https://api.themoviedb.org/3/movie/${category ? category : 'now_playing'}?language=en-US&page=1`,
                 options
@@ -42,29 +40,21 @@ const TitleCards = ({ category, title }) => {
         return () => {
             currentRef.removeEventListener("wheel", wheelHandler);
         };
-    }, [category]); // If category might change, include it in the dependency array.
+    }, [category]);
 
     return (
         <div className='title-cards'>
-            <h2>{title ? title : "Popular on Netflix"}</h2>
+            <h2>{title || "Popular on Netflix"}</h2>
             <div className='card-list' ref={cardRef}>
-                {apiData.length > 0
-                    ? apiData.map((card, index) => (
-                        <Link to={`/player/${card.id}`} key={index} className='card'>
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500/${card.poster_path}`}
-                                alt={card.backdrop_path || 'movie image'}
-                            />
-                            <p>{card.original_title}</p>
-                        </Link>
-                    ))
-                    : cards.map((card, index) => (
-                        <Link to={`/player/${card.id}`} key={index} className='card'>
-                            <img src={card.image} alt='movie-image' />
-                            <p>{card.name}</p>
-                        </Link>
-                    ))
-                }
+                {apiData.map((card, index) => (
+                    <Link to={`/player/${card.id}`} key={index} className='card'>
+                        <img
+                            src={`https://image.tmdb.org/t/p/w500/${card.poster_path}`}
+                            alt={card.backdrop_path || 'movie image'}
+                        />
+                        <p>{card.original_title}</p>
+                    </Link>
+                ))}
             </div>
         </div>
     );

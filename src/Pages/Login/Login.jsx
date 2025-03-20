@@ -1,22 +1,26 @@
 import { useState } from 'react';
 import logo from '../../assets/logo.png';
 import './login.css';
-import { signin, signup } from '../../firebase'; // Removed unnecessary logout import
+import { signin, signup } from '../../firebase'; 
+import netflix_spinner from '../../assets/netflix_spinner.gif';
+
 
 const Login = () => {
     const [signState, setSignState] = useState("Sign In");
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const userAuth = async (e) => {
         e.preventDefault();
-        
+        setLoading(true);
         if (signState === "Sign In") {
             await signin(email, password);
         } else {
             await signup(name, email, password); // Fixed argument order
         }
+        setLoading(false);
 
         setName('');
         setEmail('');
@@ -24,6 +28,9 @@ const Login = () => {
     };
 
     return (
+        loading?<div className='loading'>
+            <img src={netflix_spinner} alt='netflix-loading-image'/>
+        </div> :
         <div className='login'>
             <img src={logo} alt='company-logo'/>
             <div className='login-form'>

@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 const Player = () => {
     const {id} = useParams()
+    console.log(id);
     const navigate = useNavigate()
 
     const[apiData, setApiData] = useState({
@@ -26,7 +27,8 @@ const Player = () => {
         .then(res => res.json())
         .then(res => setApiData(res.results[0]))
         .catch(err => console.error(err));
-    })
+    },[id, navigate]);
+
     return (
         <div className='player'>
             <img src={backarrow} alt='back_to_homePage' onClick={() => navigate(-2)}/>
