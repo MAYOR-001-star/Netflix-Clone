@@ -2,7 +2,8 @@ import { useState } from 'react';
 import logo from '../../assets/logo.png';
 import { signin, signup } from '../../firebase'; 
 import netflix_spinner from '../../assets/netflix_spinner.gif';
-import './login.css';
+import "/src/Pages/Login/login.css";
+
 
 
 const Login = () => {
