@@ -45,3 +45,11 @@
     font-size: 10px;
     font-weight: bold;
 }
+
+
+@media (max-width: 500px) {
+    .card img {
+        width: 7rem;
+    }
+    
+}

@@ -97,3 +97,15 @@
 .loading img{
     width: 60px;
 }
+
+@media (max-width: 500px) {
+    .login{
+        padding: 15px 5%;
+    }
+    .login-form{
+        padding: 20px;
+        /* margin-top: 30px; */
+        margin-top: 5rem;
+    }
+
+}

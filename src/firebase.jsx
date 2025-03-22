@@ -18,8 +18,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);  // ✅ Firebase Auth instance
-const db = getFirestore(app);  // ✅ Firestore instance
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 
 // Authentication functions

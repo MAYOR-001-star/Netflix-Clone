@@ -12,6 +12,7 @@
     left: 20px;
     width: 50px;
     cursor: pointer;
+    z-index: 2;
 }
 
 .player iframe{

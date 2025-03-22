@@ -40,7 +40,7 @@ const TitleCards = ({ category, title }) => {
         return () => {
             currentRef.removeEventListener("wheel", wheelHandler);
         };
-    }, [category]);
+    }, []);
 
     return (
         <div className='title-cards'>

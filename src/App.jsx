@@ -19,7 +19,7 @@ const App = () => {
         navigate('/login')
       }
     })
-  }, [navigate])
+  }, [])
   return (
     <div>
       <ToastContainer theme="dark"/>

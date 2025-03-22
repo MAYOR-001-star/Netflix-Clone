@@ -25,3 +25,16 @@
 .footer li{
     cursor: cursor;
 }
+
+@media (max-width: 800px) {
+    .footer{
+        padding: 0 4%;
+    }
+    .footer ul{
+        grid-template-columns: repeat(2, auto);
+        gap: 8px;
+    }
+    .footer-icons img{
+        width: 1.5rem;
+    }
+}
