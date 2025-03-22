@@ -111,6 +111,9 @@
         font-size: 15px;
     }
     .caption-img {
-        margin-bottom: -70px;
+        margin-bottom: -8px;
+    }
+    .hero-btns{
+        margin-bottom: 0;
     }
 }
